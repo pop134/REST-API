@@ -13,11 +13,6 @@ api = Api(app)
 app.secret_key = 'he'
 
 
-@app.before_first_request
-def create_table():
-    db.create_all()
-
-
 jwt = JWT(app, authenticate, identity)
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(Register, '/register')
